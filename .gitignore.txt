@@ -1,0 +1,10 @@
+# Ignorer les fichiers sensibles
+.env
+*.log
+node_modules/
+ladder.json
+ladder_msg.json
+
+# Ignorer les fichiers système
+.DS_Store
+Thumbs.db

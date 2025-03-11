@@ -1,10 +1,13 @@
-require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Routes, PermissionFlagsBits } = require('discord.js');
 const fs = require('fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 const TOKEN = process.env.TOKEN;
+if (!TOKEN) {
+    console.error("❌ Erreur : Le TOKEN n'est pas défini. Vérifie les variables d'environnement sur Railway.");
+    process.exit(1);
+}
 const GUILD_ID = process.env.GUILD_ID;
 const LADDER_CHANNEL_ID = process.env.LADDER_CHANNEL_ID;
 const LADDER_FILE = 'ladder.json';
