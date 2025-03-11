@@ -1,4 +1,10 @@
 require('dotenv').config();
+console.log("🔍 Chargement du fichier .env terminé !");
+console.log("🚀 Tentative de connexion avec le TOKEN...");
+client.login(TOKEN)
+    .then(() => console.log("✅ Connexion réussie !"))
+    .catch(err => console.error("❌ Erreur de connexion:", err));
+
 const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Routes, PermissionFlagsBits } = require('discord.js');
 const fs = require('fs');
 
