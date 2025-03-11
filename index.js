@@ -177,5 +177,6 @@ client.on('interactionCreate', async interaction => {
         await updateLadderMessage(ladderChannel);
     }
 });
+console.log("🚀 Vérification TOKEN :", TOKEN ? "✅ Détecté" : "❌ NON DÉTECTÉ");
 
 client.login(TOKEN);
