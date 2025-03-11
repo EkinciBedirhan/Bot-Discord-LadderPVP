@@ -1,15 +1,10 @@
 require('dotenv').config();
-console.log("🔍 Chargement du fichier .env terminé !");
 const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Routes, PermissionFlagsBits } = require('discord.js');
 const fs = require('fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
-console.log("🔍 Type de TOKEN :", process.env);
+
 const TOKEN = process.env.TOKEN;
-if (!TOKEN) {
-    console.error("❌ Erreur : Le TOKEN n'est pas défini. Vérifie les variables d'environnement sur Railway.");
-    process.exit(1);
-}
 const GUILD_ID = process.env.GUILD_ID;
 const LADDER_CHANNEL_ID = process.env.LADDER_CHANNEL_ID;
 const LADDER_FILE = 'ladder.json';
@@ -179,12 +174,5 @@ client.on('interactionCreate', async interaction => {
         await updateLadderMessage(ladderChannel);
     }
 });
-console.log("🔍 Valeur brute de TOKEN :", JSON.stringify(process.env.TOKEN));
-console.log("🔍 TOKEN est-il défini ?", process.env.TOKEN ? "✅ OUI" : "❌ NON");
-
 
 client.login(TOKEN);
-console.log("🚀 Tentative de connexion avec le TOKEN...");
-client.login(TOKEN)
-    .then(() => console.log("✅ Connexion réussie !"))
-    .catch(err => console.error("❌ Erreur de connexion:", err));
