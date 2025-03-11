@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Rout
 const fs = require('fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
-
+console.log("🔍 Type de TOKEN :", process.env);
 const TOKEN = process.env.TOKEN;
 if (!TOKEN) {
     console.error("❌ Erreur : Le TOKEN n'est pas défini. Vérifie les variables d'environnement sur Railway.");
@@ -178,7 +178,6 @@ client.on('interactionCreate', async interaction => {
     }
 });
 console.log("🔍 Valeur brute de TOKEN :", JSON.stringify(process.env.TOKEN));
-console.log("🔍 Type de TOKEN :", typeof process.env.TOKEN);
 console.log("🔍 TOKEN est-il défini ?", process.env.TOKEN ? "✅ OUI" : "❌ NON");
 
 
