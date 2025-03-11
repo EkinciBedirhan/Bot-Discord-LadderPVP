@@ -177,6 +177,9 @@ client.on('interactionCreate', async interaction => {
         await updateLadderMessage(ladderChannel);
     }
 });
-console.log("🚀 Vérification TOKEN :", TOKEN ? "✅ Détecté" : "❌ NON DÉTECTÉ");
+console.log("🔍 Valeur brute de TOKEN :", JSON.stringify(process.env.TOKEN));
+console.log("🔍 Type de TOKEN :", typeof process.env.TOKEN);
+console.log("🔍 TOKEN est-il défini ?", process.env.TOKEN ? "✅ OUI" : "❌ NON");
+
 
 client.login(TOKEN);
